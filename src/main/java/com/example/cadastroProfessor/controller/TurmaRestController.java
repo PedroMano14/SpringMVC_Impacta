@@ -20,7 +20,8 @@ import com.example.cadastroProfessor.model.Turma;
 @RestController
 @RequestMapping("/api")
 @CrossOrigin
-public class TurmaController {
+public class TurmaRestController {
+	
 	@Autowired
 	ProfessorRepository profRepo;
 	

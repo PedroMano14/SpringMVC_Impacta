@@ -19,7 +19,7 @@ import com.example.cadastroProfessor.repository.ProfessorRepository;
 @RestController
 @RequestMapping("/api")
 @CrossOrigin
-public class ProfessorController {
+public class ProfessorRestController {
 	
 	@Autowired
 	ProfessorRepository professorRepository;
@@ -31,7 +31,7 @@ public class ProfessorController {
 		return listaProfessors;
 	}
 	
-	@PostMapping("/cadastraProfessor")
+	@PostMapping("/cadastrar-professor")
 	public void cadastrarProfessor(@RequestBody Professor professor) {
 		
 		professorRepository.save(professor);
@@ -45,7 +45,7 @@ public class ProfessorController {
 		return professor;
 	}
 	
-	@DeleteMapping("/professorDeletar/{codigo}")
+	@DeleteMapping("/deletar-professor/{codigo}")
 	public void deletarProfessor(@PathVariable long codigo) {
 		
 		Professor professor = professorRepository.findById(codigo);
@@ -55,7 +55,7 @@ public class ProfessorController {
 		
 	}
 	
-	@PutMapping("/editarProfessor")
+	@PutMapping("/editar-professor")
 	public void editarProfessor(@RequestBody Professor professor) {
 
 		professorRepository.save(professor);
