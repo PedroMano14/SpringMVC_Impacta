@@ -8,6 +8,7 @@
 	rel="stylesheet"
 	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 	crossorigin="anonymous">
+<link rel="icon" href="data:,">
 
 <style>
 input[type=text] {
@@ -18,13 +19,16 @@ input[type=text] {
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="collapse navbar-collapse" id="navbarNav"
-			style="background: #4682B4">
+			style="background: #8957FF">
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link"
 					href="/listar-professores" style="color: white">Inicio</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="/cadastrar-professor" style="color: white">Cadastrar
-						professor</a></li>
+					href="/cadastrar-professor" style="color: white">Cadastrar professor</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="/cadastro-usuario" style="color: white">Cadastrar usuario</a></li>
+				<li class="nav-item" ><a class="nav-link"
+					href="/gerenciar-usuario" style="color: white">Gerenciar Usuario</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -33,8 +37,8 @@ input[type=text] {
 		<div th:each="professor : ${professor}">
 			<form class="container" method="POST">
 				<div>
-					Matrícula: <input type="text" th:value="${professor.matricula}"
-						name="matricula" readonly="readonly" />
+					Matrícula: <input type="text" th:value="${professor.codigo}"
+						name="codigo" readonly="readonly" />
 				</div>
 				<div>
 					Nome: <input type="text" th:value="${professor.nome}" name="nome" />

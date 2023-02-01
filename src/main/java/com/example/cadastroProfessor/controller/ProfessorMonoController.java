@@ -17,11 +17,6 @@ public class ProfessorMonoController {
 	@Autowired
 	ProfessorRepository profRepo;
 	
-	@RequestMapping("/")
-	public String index() {
-		return "index";
-	}
-	
 	@RequestMapping("/listar-professores")
 	public ModelAndView listarProfessores() {
 		
@@ -50,9 +45,9 @@ public class ProfessorMonoController {
 	}
 	
 	@RequestMapping("/deletar-professor")
-	public String deletarProfessor(long matricula) {
+	public String deletarProfessor(long codigo) {
 		
-		Professor prof = profRepo.findById(matricula);
+		Professor prof = profRepo.findById(codigo);
 		
 		profRepo.delete(prof);
 		return "redirect:/listar-professores";

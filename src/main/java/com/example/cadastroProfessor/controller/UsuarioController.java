@@ -45,7 +45,6 @@ public class UsuarioController {
 		Iterable<Usuario> usuarios = usuarioRepository.findAll();
 		
 		
-		
 		modelAndViewUsuario.addObject("usuarios", usuarios);
 		
 		
@@ -62,6 +61,18 @@ public class UsuarioController {
 		usuarioRepository.delete(usuario);
 		
 		return "redirect:/gerenciar-usuario";
+	}
+	
+	@RequestMapping(value ="editar-usuario/{login}", method = RequestMethod.POST)
+	public String editarUsuarioPost(Usuario usuario) {
+		
+		usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
+		
+		
+		usuarioRepository.save(usuario);
+		
+		
+		return "redirect:/gerenciarUsuario";
 	}
 	
 

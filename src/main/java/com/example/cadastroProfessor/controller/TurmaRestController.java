@@ -42,10 +42,10 @@ public class TurmaRestController {
 		return turma;
 	}
 
-	@PostMapping("/cadastrar-turma/{matricula}")
-	public void cadastrarTurma(@RequestBody Turma turma, @PathVariable long matricula) {
+	@PostMapping("/cadastrar-turma/{codigo}")
+	public void cadastrarTurma(@RequestBody Turma turma, @PathVariable long codigo) {
 		
-		turma.setProfessor(profRepo.findById(matricula));
+		turma.setProfessor(profRepo.findById(codigo));
 		turmaRepo.save(turma);
 	}
 
@@ -56,7 +56,7 @@ public class TurmaRestController {
 		turmaRepo.delete(turma);
 	}
 	
-	@PutMapping("/editar-turma/{matricula}")
+	@PutMapping("/editar-turma/{codigo}")
 	public void editarTurma(@RequestBody Turma turma, @PathVariable long matricula) {
 		
 		turma.setProfessor(profRepo.findById(matricula));

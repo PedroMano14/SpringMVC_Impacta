@@ -19,11 +19,10 @@ public class WebSecurityConfig {
 		
 		http // objeto do tipo HttpSecurity 
 		.authorizeRequests().antMatchers(HttpMethod.POST).permitAll()
-        
 		.and() // Conexão de instruções
 		.formLogin()//Indica que terá uma pagina com formulario de Login
 		.loginPage("/login")// Indica a pagina HTML que será usada para o Login
-		.defaultSuccessUrl("/") // Indica a pagina que será apresentada apos a realização do Login
+		.defaultSuccessUrl("/listar-professores") // Indica a pagina que será apresentada apos a realização do Login
 		.permitAll() // Todos os Usuarios logodos possuem permissão para acessar a Index
 		.and() // Conexão de instruções
 		.logout()//Indica que a aplicação terá logout
@@ -45,5 +44,4 @@ public class WebSecurityConfig {
 		return new BCryptPasswordEncoder();
 		
 	}
-
 }
